@@ -7,10 +7,19 @@ const win_options = {
     'scissors': 'paper'
 }
 
-
+let playerScore = 0;
+let comScore = 0;
 const roundField = document.getElementById("round");
 const comSelectImg = document.getElementById("com-select");
 const comImgBorder = document.getElementById("com-buttons")
+const playerBoard = document.getElementById("player-board");
+const comBoard = document.getElementById("com-board");
+const playerScoreField = document.getElementById("player-score");
+const comScoreField = document.getElementById("com-score");
+const imgButton = document.getElementsByClassName("img-button");
+
+const winnerImg = document.getElementById("winner");
+const resultQuote = document.getElementById("result-quote");
 
 function getComputerChoice() {
     return CHOICES[Math.floor(Math.random() * CHOICES.length)]
@@ -19,13 +28,13 @@ function getComputerChoice() {
 function playRound(ps, cs) {
     console.log("Player = " + ps);
     console.log("Com = " + cs);
-    if (ps === ps) {
-        return "TIE";
+    if (ps === cs) {
+        return "tie";
     } else {
         if (win_options[ps] === cs) {
-            return "You Win!! " + ps + " beats " + cs;
+            return "player";
         } else {
-            return "You Lose!! " + ps + " beats " + cs;
+            return "com";
         }
     }
 }
@@ -38,11 +47,43 @@ async function game() {
         round = i + 1;
         roundField.innerHTML = round;
         playerSelect = await getUserInput();
-        console.log("Round: " + round + " Player Select: " + playerSelect);
-
         comImgBorder.style.border = "0px solid #FF0000";
+        comImgBorder.style.padding = "15px";
         comSelect = await getComInput();
-        console.log("Com Select= " + comSelect);
+
+        result = playRound(playerSelect, comSelect);
+        console.log("result: " + result);
+        switch (result) {
+            case 'tie':
+                playerBoard.style.backgroundColor = "#aabbcc";
+                comBoard.style.backgroundColor = "#aabbcc";
+                break;
+            case 'player':
+                playerBoard.style.backgroundColor = "#aabbcc";
+                playerScore++;
+                playerScoreField.innerHTML = playerScore;
+                break;
+            case 'com':
+                comBoard.style.backgroundColor = "#aabbcc";
+                comScore++;
+                comScoreField.innerHTML = comScore;
+                break;
+        }
+    }
+
+    document.getElementById("popup").style.display = "flex";
+    if (playerScore === comScore) {
+        //tie
+        winnerImg.src = "images\/tie.png";
+        resultQuote.innerHTML = "DRAW ..";
+    } else if (playerScore > comScore) {
+        //player wins
+        winnerImg.src = "images\/player.png";
+        resultQuote.innerHTML = "WIN !";
+    } else {
+        //com wins
+        winnerImg.src = "images\/bot.png";
+        resultQuote.innerHTML = "WIN !";
     }
 }
 
@@ -51,17 +92,30 @@ async function getUserInput() {
         const rockBtn = document.getElementById("rock");
         const paperBtn = document.getElementById("paper");
         const scissorsBtn = document.getElementById("scissors");
-
         rockBtn.addEventListener("click", eventHandler);
         paperBtn.addEventListener("click", eventHandler);
         scissorsBtn.addEventListener("click", eventHandler);
+
 
         function eventHandler(event) {
             rockBtn.removeEventListener("click", eventHandler);
             paperBtn.removeEventListener("click", eventHandler);
             scissorsBtn.removeEventListener("click", eventHandler);
 
+            playerBoard.style.backgroundColor = "#ffffff";
+            comBoard.style.backgroundColor = "#ffffff";
+
             const clickedImageId = event.target.id;
+            for (let i = 0; i < imgButton.length; i++) {
+                imgButton[i].style.border = "0px solid #FFFFFF";
+                imgButton[i].style.padding = "10px";
+            }
+
+            event.target.style.border = "5px solid #ccccFF"
+            event.target.style.padding = "5px";
+            event.target.style.borderRadius = "50%";
+
+
             let userInput;
             switch (clickedImageId) {
                 case "paper":
@@ -79,21 +133,11 @@ async function getUserInput() {
     });
 }
 
-
-async function selectingAnim() {
-
-    return new Promise(resolve => {
-        resolve();
-    });
-}
-
-
 async function getComInput() {
     return new Promise(resolve => {
         let result = ""
         let randomChoice;
-        let randomNum = Math.floor(Math.random() * 20) + 10;
-        console.log("random: " + randomNum);
+        let randomNum = Math.floor(Math.random() * 15) + 15;
         (function myLoop(i) {
             setTimeout(function () {
                 randomChoice = CHOICES[Math.floor(Math.random() * CHOICES.length)];
@@ -107,6 +151,7 @@ async function getComInput() {
                     imgSrc = "images\/" + comSelect + "\.png"
                     comSelectImg.src = imgSrc;
                     comImgBorder.style.border = "5px solid #FF0000";
+                    comImgBorder.style.padding = "10px";
                     resolve(comSelect);
                 }
             }, 100)

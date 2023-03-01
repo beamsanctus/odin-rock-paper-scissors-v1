@@ -6,6 +6,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: roboto;
+    position: relative;;
 }
 
 header {
@@ -43,7 +44,7 @@ img {
     align-items: center;
     justify-content: space-around;
     font-size: 4rem;
-    border: 2px solid black;
+    border: 3px solid black;
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
@@ -58,7 +59,7 @@ img {
 }
 
 .player-buttons {
-    border: 2px solid black;
+    border: 3px solid black;
     padding: 10px;
     margin: 10px;
     border-radius: 15px;
@@ -71,3 +72,53 @@ img {
     border: 5px solid red;
 }
 
+#popup{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-30%, -50%);
+    border: 5px solid black;
+    border-radius: 15px;
+    padding: 20px 80px;
+    background-color: #ecf3ff;
+    font-size: 3.6rem;
+
+    min-height: 160px;
+
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+
+    display: none;
+}
+
+.popup-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 4.8rem;
+}
+
+.continue-btn {
+    display:flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+#continue-btn {
+    border: 3px solid black;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 5px 40px;
+    margin-top: 20px;
+}
+
+#continue-btn:hover{
+    background-color: rgb(64, 148, 222);
+    color: rgb(249, 253, 255);
+}
+
+#continue-btn:active{
+    background-color: rgb(47, 72, 170);
+    color: rgb(249, 253, 255);
+}
