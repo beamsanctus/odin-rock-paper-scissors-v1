@@ -23,7 +23,7 @@ p {
 }
 
 img {
-    padding:10px;
+    padding: 10px;
 }
 
 .content {
@@ -54,7 +54,6 @@ img {
     flex-grow: 1;
     display: flex;
     align-items: center;
-    
 }
 
 .player-buttons {
@@ -71,7 +70,7 @@ img {
     border: 5px solid red;
 }
 
-#popup{
+#popup {
     position: absolute;
     left: 50%;
     top: 50%;
@@ -99,7 +98,7 @@ img {
 }
 
 .continue-btn {
-    display:flex;
+    display: flex;
     align-items: stretch;
     justify-content: center;
 }
@@ -112,12 +111,12 @@ img {
     margin-top: 20px;
 }
 
-#continue-btn:hover{
+#continue-btn:hover {
     background-color: rgb(64, 148, 222);
     color: rgb(249, 253, 255);
 }
 
-#continue-btn:active{
+#continue-btn:active {
     background-color: rgb(47, 72, 170);
     color: rgb(249, 253, 255);
 }
