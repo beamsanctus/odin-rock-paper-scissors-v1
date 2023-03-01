@@ -43,10 +43,11 @@ let playerSelect, comSelect;
 
 async function game() {
     let round = 0;
+    roundField.innerHTML = round + "\/5";
     for (let i = 0; i < ROUND; i++) {
-        round = i + 1;
-        roundField.innerHTML = round;
         playerSelect = await getUserInput();
+        round++;
+        roundField.innerHTML = round + "\/5";
         comImgBorder.style.border = "0px solid #FF0000";
         comImgBorder.style.padding = "15px";
         comSelect = await getComInput();
