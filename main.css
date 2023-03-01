@@ -1,0 +1,72 @@
+* {
+    font-size: 62.5%;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+
+header {
+    text-align: center;
+    background-color: antiquewhite;
+}
+
+h1 {
+    font-size: 3.6rem;
+}
+
+p {
+    font-size: 2.4rem;
+}
+
+img {
+    padding: 0 10px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.score-board {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.score {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 4rem;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    min-width: 100px;
+}
+
+.button-board {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-buttons {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.com-buttons {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
+

@@ -5,11 +5,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+    <title>ODIN-RPS</title>
 </head>
 
 <body>
+    <header>
+        <h1>ROCK PAPER SCISSORS</h1>
+    </header>
 
+    <div class="content">
+        <div class="score-board">
+            <div class="score">
+                <span>Round:</span> <span id="round"></span>
+            </div>
+            <div class="score">
+                <img src="/images/player.png" alt="" width="40px"> <span id="player-score">0</span>
+            </div>
+            <div class="score">
+                <img src="/images/bot.png" alt="" width="40px"> <span id="com-score">0</span>
+            </div>
+        </div>
+        <div class="button-board">
+            <div class="player-buttons">
+                <img src="images/rock.png" alt="" id="rock" width="100px">
+                <img src="images/paper.png" alt="" id="paper" width="100px">
+                <img src="images/scissors.png" alt="" id="scissors" width="100px">
+            </div>
+            <div class="com-buttons">
+                <img src="images/question.png" alt="" width="100px" id="com-select">
+            </div>
+        </div>
+    </div>
 </body>
 <script type="text/javascript" src="main.js"></script>
 
