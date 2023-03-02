@@ -17,7 +17,6 @@ const comBoard = document.getElementById("com-board");
 const playerScoreField = document.getElementById("player-score");
 const comScoreField = document.getElementById("com-score");
 const imgButton = document.getElementsByClassName("img-button");
-
 const winnerImg = document.getElementById("winner");
 const resultQuote = document.getElementById("result-quote");
 
